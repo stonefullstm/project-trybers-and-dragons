@@ -15,10 +15,7 @@ export default class Character implements Fighter {
   private _energy: Energy;
 
   constructor(name: string) {
-    const agility = getRandomInt(1, 10);
-    // const newRace = new Elf(name, agility);
-    // const newArchetype = new Mage(name);
-    this._race = new Elf(name, agility);
+    this._race = new Elf(name, getRandomInt(1, 10));
     this._archetype = new Mage(name);
     this._maxLifePoints = this._race.maxLifePoints / 2;
     this._lifePoints = this._maxLifePoints;
