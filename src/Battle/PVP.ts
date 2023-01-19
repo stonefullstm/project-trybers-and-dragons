@@ -1,4 +1,5 @@
 import Fighter from '../Fighter';
+import getRandomInt from '../utils';
 import Battle from './Battle';
 
 export default class PVP extends Battle {
@@ -14,8 +15,11 @@ export default class PVP extends Battle {
 
   fight(): number {
     while (this._player1.lifePoints !== -1 && this._player2.lifePoints !== -1) {
-      this._player1.attack(this._player2);
-      this._player2.attack(this._player1);
+      if (getRandomInt(1, 3) === 1) {
+        this._player1.attack(this._player2);
+      } else {
+        this._player2.attack(this._player1);
+      }
     }
     return super.fight();
   }
